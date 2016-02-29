@@ -4,14 +4,21 @@
  * Config for the router
  */
 angular.module('app')
-  .run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
-          $rootScope.$state = $state;
-          $rootScope.$stateParams = $stateParams;        
-      }
-    ]
-  )
+//  .run(
+//    [          '$rootScope', '$state', '$stateParams',
+//      function ($rootScope,   $state,   $stateParams) {
+//          $rootScope.$state = $state;
+//          $rootScope.$stateParams = $stateParams;        
+//      }
+//    ]
+//  )
+  .run(['$rootScope', '$location', '$window', '$http', '$state', '$translate', 'Auth', 'Principal', 'Language', 
+		'ENV', 'VERSION', 'GAuth', 'GApi', 'GData', 'localStorageService', function ($rootScope, $location, $window, $http, $state, $translate, Auth, Principal, Language, 
+	    		ENV, VERSION, GAuth, GApi, GData, localStorageService) {
+	  $rootScope.$state = $state;
+	  $rootScope.$stateParams = $stateParams; 
+  }
+  ])	
   .config(
     [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 
       function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
