@@ -18,5 +18,6 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
     'angular-google-gapi',
-    'hm.readmore'
+    'hm.readmore',
+    'LocalStorageModule'
 ]);

@@ -12,11 +12,58 @@ angular.module('app')
 //      }
 //    ]
 //  )
-  .run(['$rootScope', '$location', '$window', '$http', '$state', '$translate', 'Auth', 'Principal', 'Language', 
-		'ENV', 'VERSION', 'GAuth', 'GApi', 'GData', 'localStorageService', function ($rootScope, $location, $window, $http, $state, $translate, Auth, Principal, Language, 
+  .run(['$rootScope', '$location', '$window', '$http', '$state', '$translate', '$stateParams', 'Auth', 'Principal', 
+		'ENV', 'VERSION', 'GAuth', 'GApi', 'GData', 'localStorageService', function ($rootScope, $location, $window, $http, $state, $stateParams, $translate, Auth, Principal, 
 	    		ENV, VERSION, GAuth, GApi, GData, localStorageService) {
-	  $rootScope.$state = $state;
-	  $rootScope.$stateParams = $stateParams; 
+	  
+		  $rootScope.$state = $state;
+		  $rootScope.$stateParams = $stateParams; 
+		  
+		  //Loading facebook
+		  $window.fbAsyncInit = function() {
+		        FB.init({
+		          appId      : '142987259399471',
+		      xfbml      : true,
+		      version    : 'v2.5'
+		        });
+		      };
+		
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		  //End Loading facebook
+  
+		  //Loading google api
+		  var BASE;
+		  if($window.location.hostname == 'localhost') {
+		  BASE = 'http://localhost:9494/_ah/api';
+		  } else {
+			  BASE = 'https://yealtubetest.appspot.com/_ah/api';
+		  }
+			
+		  BASE = 'https://yealtubetest.appspot.com/_ah/api';
+		
+		  GApi.load('userxauthtokenendpoint', 'v1', BASE);
+		  GApi.load('userendpoint', 'v1', BASE);
+		  GApi.load('usergroupendpoint', 'v1', BASE);
+		  GApi.load('categoryendpoint', 'v1', BASE);
+		  GApi.load('tubeendpoint', 'v1', BASE);
+		  GApi.load('youtubeendpoint', 'v1', BASE);
+		  GApi.load('calendar', 'v3');
+		  //End loading google api
+  
+		  var token = localStorageService.get('token');
+			if (token != null) {
+				console.log('Set token: ' + token.token + token.type);
+				GAuth.setToken({
+					  access_token: token.token + token.type
+					});
+			}
+	  
   }
   ])	
   .config(
