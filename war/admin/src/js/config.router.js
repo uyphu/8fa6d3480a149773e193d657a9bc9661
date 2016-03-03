@@ -472,10 +472,10 @@ angular.module('app')
                             'js/app/video/theme.css'
                           ])
               })
-              	  .state('video.home', {
-                      url: '/home',
-                      templateUrl: 'tpl/video.home.html'
-                  })
+//              	  .state('video.home', {
+//                      url: '/home',
+//                      templateUrl: 'tpl/video.home.html'
+//                  })
                   .state('video.genres', {
                       url: '/genres',
                       templateUrl: 'tpl/video.genres.html'
