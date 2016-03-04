@@ -7,11 +7,10 @@ app.config(
 				//controller : 'HomeController',
 				resolve : {
 					mainTranslatePartialLoader : [ '$translate',
-							'$translatePartialLoader',
-							function($translate, $translatePartialLoader) {
+							function($translate) {
 //								$translatePartialLoader.addPart('home');
 //								$translatePartialLoader.addPart('global');
-								return $translate.refresh();
+								//return $translate.refresh();
 							} ]
 				}
 			});

@@ -67,8 +67,8 @@ angular.module('app')
   }
   ])	
   .config(
-    [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 
-      function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
+    [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'tmhDynamicLocaleProvider',
+      function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG, tmhDynamicLocaleProvider) {
           var layout = "tpl/app.html";
           if(window.location.href.indexOf("material") > 0){
             layout = "tpl/blocks/material.layout.html";
@@ -529,7 +529,10 @@ angular.module('app')
                   url: '/ngmaterial',
                   templateUrl: 'tpl/material/ngmaterial.html'
                 });
-
+          tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+          tmhDynamicLocaleProvider.useCookieStorage();
+          tmhDynamicLocaleProvider.storageKey('NG_TRANSLATE_LANG_KEY');
+          
           function load(srcs, callback) {
             return {
                 deps: ['$ocLazyLoad', '$q',

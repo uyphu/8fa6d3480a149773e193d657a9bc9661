@@ -19,5 +19,6 @@ angular.module('app', [
     'pascalprecht.translate',
     'angular-google-gapi',
     'hm.readmore',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'tmh.dynamicLocale'
 ]);
