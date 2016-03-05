@@ -4,7 +4,7 @@ app.config(
 				parent : 'video',
 				url : '/home',
 				templateUrl : 'js/app/video/discovery/home/home.html',
-				//controller : 'HomeController',
+				controller : 'HomeController',
 				resolve : {
 					mainTranslatePartialLoader : [ '$translate',
 							function($translate) {

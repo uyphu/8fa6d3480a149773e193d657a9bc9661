@@ -20,5 +20,6 @@ angular.module('app', [
     'angular-google-gapi',
     'hm.readmore',
     'LocalStorageModule',
-    'tmh.dynamicLocale'
+    'tmh.dynamicLocale',
+    'angularSpinner'
 ]);
