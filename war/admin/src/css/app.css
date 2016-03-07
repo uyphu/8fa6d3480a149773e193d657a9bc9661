@@ -4131,6 +4131,14 @@ a.text-#000000:hover {
 }
 
 .text-ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ 
+}
+
+.text-ellipsis-recommend {
   /*display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4145,6 +4153,13 @@ a.text-#000000:hover {
 }
 
 .text-ellipsis-top-plays {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis-top-musics {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;

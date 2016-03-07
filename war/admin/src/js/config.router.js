@@ -53,6 +53,7 @@ angular.module('app')
 		  GApi.load('categoryendpoint', 'v1', BASE);
 		  GApi.load('tubeendpoint', 'v1', BASE);
 		  GApi.load('youtubeendpoint', 'v1', BASE);
+		  GApi.load('toptubeendpoint', 'v1', BASE);
 		  GApi.load('calendar', 'v3');
 		  //End loading google api
   

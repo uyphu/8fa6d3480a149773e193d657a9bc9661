@@ -6,10 +6,12 @@ app
        $scope.tubes = [];
        $scope.musics = [];
        $scope.topPlays = [];
+       $scope.topmusics = [];
        $scope.page = 1;
        $scope.cursor = null;
        $scope.cursorMusic = null;
        $scope.cursorTopPlay = null;
+       $scope.cursorTopMusic = null;
        $scope.invalidQuerySearch = null;
        $scope.spinneractive = false;
        $scope.invalidName = null;
@@ -62,6 +64,8 @@ app
     	   listMusic($scope.cursorMusic, 8);
     	   //Load top plays
     	   listTopPlays($scope.cursorTopPlay, 5);
+    	   //Load top musics
+    	   listTopMusics($scope.cursorTopMusic, 5);
        };
        
        function listData(cursor, count) {
@@ -90,6 +94,23 @@ app
     			   if (data.items != null) {
 	    			   for (var i = 0; i < data.items.length; i++) {
 	                     $scope.musics.push(data.items[i]);
+	    			   }
+	    			   $scope.cursorMusic = data.nextPageToken;
+    			   }
+    		   }
+    		   $scope.busy  = false;
+    	   });
+       };
+       
+       function listTopMusics(cursor, count) {
+    	   $scope.startSpin();
+    	   $scope.busy  = true;
+    	   Tube.getTopMusics(cursor, count).then(function(data) {
+    		   $scope.stopSpin();
+    		   if (data != null) {
+    			   if (data.items != null) {
+	    			   for (var i = 0; i < data.items.length; i++) {
+	                     $scope.topmusics.push(data.items[i]);
 	    			   }
 	    			   $scope.cursorMusic = data.nextPageToken;
     			   }

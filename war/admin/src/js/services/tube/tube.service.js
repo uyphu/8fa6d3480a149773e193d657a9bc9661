@@ -51,7 +51,35 @@ app.factory('Tube', function ($q, DateUtils, GApi) {
     			var requestData = {};
     			requestData.cursor = cursor;
     			requestData.count = count;
-    			GApi.execute(AppConstant.TUBE_ENDPOINT, 'getTopPlays', requestData).then (function(resp){
+    			GApi.execute(AppConstant.TOP_TUBE_ENDPOINT, 'getTopPlays', requestData).then (function(resp){
+   				 	p.resolve(resp);
+    			},function(error){
+					console.log(ErrorCode.ERROR_CALL_ENDPOINT_SERVICE + error);
+					p.reject(error);
+				});
+    			return p.promise;
+   			},
+   			
+   			getTopMusics: function (cursor, count){
+    			var p=$q.defer();
+    			var requestData = {};
+    			requestData.cursor = cursor;
+    			requestData.count = count;
+    			GApi.execute(AppConstant.TOP_TUBE_ENDPOINT, 'getTopMusics', requestData).then (function(resp){
+   				 	p.resolve(resp);
+    			},function(error){
+					console.log(ErrorCode.ERROR_CALL_ENDPOINT_SERVICE + error);
+					p.reject(error);
+				});
+    			return p.promise;
+   			},
+   			
+   			getTopMovies: function (cursor, count){
+    			var p=$q.defer();
+    			var requestData = {};
+    			requestData.cursor = cursor;
+    			requestData.count = count;
+    			GApi.execute(AppConstant.TOP_TUBE_ENDPOINT, 'getTopMovies', requestData).then (function(resp){
    				 	p.resolve(resp);
     			},function(error){
 					console.log(ErrorCode.ERROR_CALL_ENDPOINT_SERVICE + error);
