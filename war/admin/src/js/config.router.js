@@ -481,10 +481,10 @@ angular.module('app')
                       url: '/genres',
                       templateUrl: 'tpl/video.genres.html'
                   })
-                  .state('video.detail', {
-                      url: '/detail',
-                      templateUrl: 'tpl/video.detail.html'
-                  })
+//                  .state('video.detail', {
+//                      url: '/detail',
+//                      templateUrl: 'tpl/video.detail.html'
+//                  })
                   .state('video.mtv', {
                       url: '/mtv',
                       templateUrl: 'tpl/video.mtv.html'

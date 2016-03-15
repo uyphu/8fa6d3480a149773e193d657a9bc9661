@@ -4150,6 +4150,7 @@ a.text-#000000:hover {
    max-height: 32px;      /* fallback */
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
+   height: 30px;
 }
 
 .text-ellipsis-top-plays {

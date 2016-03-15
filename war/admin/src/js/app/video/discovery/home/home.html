@@ -14,11 +14,11 @@
                 <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
               </div>
             </div>
-            <a ui-sref="music.detail"><img src="//i.ytimg.com/vi/{{tube.id}}/mqdefault.jpg" alt="" class="img-full r r-2x"></a>
+            <a ui-sref="video.detail({id:tube.id})"><img ui-sref="video.detail({id:tube.id})" src="//i.ytimg.com/vi/{{tube.id}}/mqdefault.jpg" alt="" class="img-full r r-2x"></a>
           </div>
           <div class="padder-v">
-            <a ui-sref="music.detail" class="text-ellipsis-recommend">{{tube.title}}</a>
-            <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">{{tube.viewCount | number:0}} views</a>
+            <a ui-sref="video.detail({id:tube.id})" class="text-ellipsis-recommend">{{tube.title}}</a>
+            <a ui-sref="video.detail({id:tube.id})" class="text-ellipsis text-xs text-muted">{{tube.viewCount | number:0}} views</a>
           </div>
         </div>
       </div>
