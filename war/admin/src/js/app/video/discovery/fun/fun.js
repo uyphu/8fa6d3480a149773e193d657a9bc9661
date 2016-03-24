@@ -1,17 +1,17 @@
 app.config(
 		function($stateProvider) {
-			$stateProvider.state('video.home', {
+			$stateProvider.state('video.fun', {
 				parent : 'video',
-				url : '/home',
-				templateUrl : 'js/app/video/discovery/home/home.html',
-				//controller : 'HomeController',
+				url : '/fun',
+				templateUrl : 'js/app/video/discovery/fun/fun.html',
+				controller : 'FunController',
 				resolve : {
 					mainTranslatePartialLoader : [ '$translate',
-							'$translatePartialLoader',
+							//'$translatePartialLoader',
 							function($translate, $translatePartialLoader) {
-//								$translatePartialLoader.addPart('home');
+//								$translatePartialLoader.addPart('fun');
 //								$translatePartialLoader.addPart('global');
-								return $translate.refresh();
+								//return $translate.refresh();
 							} ]
 				}
 			});
