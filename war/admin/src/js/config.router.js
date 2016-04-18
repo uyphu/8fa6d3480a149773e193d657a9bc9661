@@ -54,6 +54,7 @@ angular.module('app')
 		  GApi.load('tubeendpoint', 'v1', BASE);
 		  GApi.load('youtubeendpoint', 'v1', BASE);
 		  GApi.load('toptubeendpoint', 'v1', BASE);
+		  GApi.load('playlistendpoint', 'v1', BASE);
 		  GApi.load('calendar', 'v3');
 		  //End loading google api
   
@@ -493,10 +494,10 @@ angular.module('app')
                       url: '/mtvdetail',
                       templateUrl: 'tpl/video.mtv.detail.html'
                   })
-                  .state('video.playlist', {
-                      url: '/playlist/{fold}',
-                      templateUrl: 'tpl/video.playlist.html'
-                  })
+//                  .state('video.playlist', {
+//                      url: '/playlist/{fold}',
+//                      templateUrl: 'tpl/video.playlist.html'
+//                  })
               .state('app.material', {
                   url: '/material',
                   template: '<div ui-view class="wrapper-md"></div>',

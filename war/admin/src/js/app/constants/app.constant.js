@@ -138,4 +138,7 @@ AppConstant.YOUTUBE_ENDPOINT = "youtubeendpoint";
 /** The Constant TOP_TUBE_ENDPOINT. */
 AppConstant.TOP_TUBE_ENDPOINT = "toptubeendpoint"; 
 
+/** The Constant PLAYLIST_ENDPOINT. */
+AppConstant.PLAYLIST_ENDPOINT = "playlistendpoint"; 
+
 
