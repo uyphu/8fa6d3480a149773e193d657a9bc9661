@@ -72,14 +72,14 @@ angular.module('app')
     [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'tmhDynamicLocaleProvider',
       function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG, tmhDynamicLocaleProvider) {
           var layout = "tpl/app.html";
-          if(window.location.href.indexOf("material") > 0){
-            layout = "tpl/blocks/material.layout.html";
-            $urlRouterProvider
-              .otherwise('/app/dashboard-v3');
-          }else{
-            $urlRouterProvider
-              .otherwise('/app/dashboard-v1');
-          }
+//          if(window.location.href.indexOf("material") > 0){
+//            layout = "tpl/blocks/material.layout.html";
+//            $urlRouterProvider
+//              .otherwise('/app/dashboard-v3');
+//          }else{
+//            $urlRouterProvider
+//              .otherwise('/app/dashboard-v1');
+//          }
           
           $stateProvider
               .state('app', {
