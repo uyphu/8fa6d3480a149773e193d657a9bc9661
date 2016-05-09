@@ -21,5 +21,6 @@ angular.module('app', [
     'hm.readmore',
     'LocalStorageModule',
     'tmh.dynamicLocale',
-    'angularSpinner'
+    'angularSpinner',
+    'ezfb'
 ]);

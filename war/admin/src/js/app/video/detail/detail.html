@@ -10,98 +10,26 @@
             <div class="text-muted">
               <h2 class="m-t-none"><a href class="m-l-sm"> {{tube.viewCount | number}}</a></h2>
             </div>
+            <div class="fb-like" data-href="{{ url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             <div class="line line-lg b-b b-light"></div>
             <div class="text-muted">
 <!--               <i class="fa fa-user text-muted"></i> by <a href class="m-r-sm">{{tube.author}}</a> -->
               <i class="fa fa-clock-o text-muted"></i> {{tube.createdAt | date:'yyyy-MM-dd HH:mm:ss Z'}}
             </div>
-            <div hm-read-more
-			        hm-text="{{ tube.description }}" 
-			        hm-limit="100" 
-			        hm-more-text="read more" 
-			        hm-less-text="read less"
-			        hm-dots-class="dots"
-			        hm-link-class="links">
-			</div>
+<!--             <div hm-read-more -->
+<!-- 			        hm-text="{{ tube.description }}"  -->
+<!-- 			        hm-limit="100"  -->
+<!-- 			        hm-more-text="read more"  -->
+<!-- 			        hm-less-text="read less" -->
+<!-- 			        hm-dots-class="dots" -->
+<!-- 			        hm-link-class="links"> -->
+<!-- 			</div> -->
           </div>
         </div>
       </div>
 
-      <h4 class="m-t-lg m-b">3 Comments</h4>
-      <div>
-        <div>
-          <a class="pull-left thumb-sm">
-            <img src="img/a0.jpg" class="img-circle">
-          </a>
-          <div class="m-l-xxl m-b">
-            <div>
-              <a href><strong>John smith</strong></a>
-              <label class="label bg-info m-l-xs">Editor</label> 
-              <span class="text-muted text-xs block m-t-xs">
-                24 minutes ago
-              </span>
-            </div>
-            <div class="m-t-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum.</div>
-          </div>
-        </div>
-
-        <div class="m-l-xxl">
-          <a class="pull-left thumb-sm">
-            <img src="img/a1.jpg" class="img-circle">
-          </a>
-          <div class="m-l-xxl m-b">
-            <div>
-              <a href><strong>John smith</strong></a>
-              <label class="label bg-dark m-l-xs">Admin</label> 
-              <span class="text-muted text-xs block m-t-xs">
-                26 minutes ago
-              </span>
-            </div>
-            <div class="m-t-sm">Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</div>
-          </div>
-        </div>
-
-        <div>
-          <a class="pull-left thumb-sm">
-            <img src="img/a2.jpg" class="img-circle">
-          </a>
-          <div class="m-l-xxl m-b">
-            <div>
-              <a href><strong>John smith</strong></a>
-              <label class="label bg-dark m-l-xs">Admin</label> 
-              <span class="text-muted text-xs block m-t-xs">
-                26 minutes ago
-              </span>
-            </div>
-            <blockquote class="m-t">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-            </blockquote>
-            <div class="m-t-sm">Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</div>
-          </div>
-        </div>
-
-      </div>
-      <h4 class="m-t-lg m-b">Leave a comment</h4>
-      <form>
-        <div class="form-group pull-in clearfix">
-          <div class="col-sm-6">
-            <label>Your name</label>
-            <input type="text" class="form-control" placeholder="Name">
-          </div>
-          <div class="col-sm-6">
-            <label >Email</label>
-            <input type="email" class="form-control" placeholder="Enter email">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Comment</label>
-          <textarea class="form-control" rows="5" placeholder="Type your comment"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success">Submit comment</button>
-        </div>
-      </form>
+      <div class="fb-comments" data-href="{{url}}" data-numposts="5" data-colorscheme="light"></div>
+      
     </div>
     <div class="col-sm-3">
       <h5 class="font-bold">Recent Posts</h5>

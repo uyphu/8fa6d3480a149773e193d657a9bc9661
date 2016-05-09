@@ -4,14 +4,6 @@
  * Config for the router
  */
 angular.module('app')
-//  .run(
-//    [          '$rootScope', '$state', '$stateParams',
-//      function ($rootScope,   $state,   $stateParams) {
-//          $rootScope.$state = $state;
-//          $rootScope.$stateParams = $stateParams;        
-//      }
-//    ]
-//  )
   .run(['$rootScope', '$location', '$window', '$http', '$state', '$translate', '$stateParams', 'Auth', 'Principal', 
 		'ENV', 'VERSION', 'GAuth', 'GApi', 'GData', 'localStorageService', function ($rootScope, $location, $window, $http, $state, $stateParams, $translate, Auth, Principal, 
 	    		ENV, VERSION, GAuth, GApi, GData, localStorageService) {
@@ -20,21 +12,21 @@ angular.module('app')
 		  $rootScope.$stateParams = $stateParams; 
 		  
 		  //Loading facebook
-		  $window.fbAsyncInit = function() {
-		        FB.init({
-		          appId      : '142987259399471',
-		      xfbml      : true,
-		      version    : 'v2.5'
-		        });
-		      };
-		
-		  (function(d, s, id){
-		     var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) {return;}
-		     js = d.createElement(s); js.id = id;
-		     js.src = "//connect.facebook.net/en_US/sdk.js";
-		     fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
+//		  $window.fbAsyncInit = function() {
+//		        FB.init({
+//		          appId      : '818148811651098',
+//		      xfbml      : true,
+//		      version    : 'v2.6'
+//		        });
+//		      };
+//		
+//	      (function(d, s, id) {
+//	    	  var js, fjs = d.getElementsByTagName(s)[0];
+//	    	  if (d.getElementById(id)) return;
+//	    	  js = d.createElement(s); js.id = id;
+//	    	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=818148811651098";
+//	    	  fjs.parentNode.insertBefore(js, fjs);
+//	    	}(document, 'script', 'facebook-jssdk'));
 		  //End Loading facebook
   
 		  //Loading google api
@@ -69,8 +61,19 @@ angular.module('app')
   }
   ])	
   .config(
-    [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'tmhDynamicLocaleProvider',
-      function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG, tmhDynamicLocaleProvider) {
+    ['$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 'tmhDynamicLocaleProvider',
+     'ezfbProvider',
+      function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG, tmhDynamicLocaleProvider, ezfbProvider) {
+    	ezfbProvider.setLocale('en_US');
+    	ezfbProvider.setInitParams({
+    	    // This is my FB app id for plunker demo app
+    	    appId: '818148811651098',
+
+    	    // Module default is `v2.4`.
+    	    // If you want to use Facebook platform `v2.3`, you'll have to add the following parameter.
+    	    // https://developers.facebook.com/docs/javascript/reference/FB.init
+    	    version: 'v2.6'
+    	  });  
           var layout = "tpl/app.html";
 //          if(window.location.href.indexOf("material") > 0){
 //            layout = "tpl/blocks/material.layout.html";
