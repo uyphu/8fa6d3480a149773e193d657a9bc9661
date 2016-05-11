@@ -5,30 +5,14 @@
  */
 angular.module('app')
   .run(['$rootScope', '$location', '$window', '$http', '$state', '$translate', '$stateParams', 'Auth', 'Principal', 
-		'ENV', 'VERSION', 'GAuth', 'GApi', 'GData', 'localStorageService', function ($rootScope, $location, $window, $http, $state, $stateParams, $translate, Auth, Principal, 
-	    		ENV, VERSION, GAuth, GApi, GData, localStorageService) {
+		'ENV', 'VERSION', 'GAuth', 'GApi', 'GData', 'localStorageService', 'AppUtil', function ($rootScope, $location, $window, $http, $state, $stateParams, $translate, Auth, Principal, 
+	    		ENV, VERSION, GAuth, GApi, GData, localStorageService, AppUtil) {
+	  
 	  
 		  $rootScope.$state = $state;
 		  $rootScope.$stateParams = $stateParams; 
+		  $rootScope.TUBE = null;
 		  
-		  //Loading facebook
-//		  $window.fbAsyncInit = function() {
-//		        FB.init({
-//		          appId      : '818148811651098',
-//		      xfbml      : true,
-//		      version    : 'v2.6'
-//		        });
-//		      };
-//		
-//	      (function(d, s, id) {
-//	    	  var js, fjs = d.getElementsByTagName(s)[0];
-//	    	  if (d.getElementById(id)) return;
-//	    	  js = d.createElement(s); js.id = id;
-//	    	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=818148811651098";
-//	    	  fjs.parentNode.insertBefore(js, fjs);
-//	    	}(document, 'script', 'facebook-jssdk'));
-		  //End Loading facebook
-  
 		  //Loading google api
 		  var BASE;
 		  if($window.location.hostname == 'localhost') {
@@ -57,6 +41,12 @@ angular.module('app')
 					  access_token: token.token + token.type
 					});
 			}
+			
+			$rootScope.$watch('TUBE', function() {
+	        	if ($rootScope.TUBE != null) {
+	        		AppUtil.updateHeader($rootScope.TUBE);
+				}
+	        });
 	  
   }
   ])	

@@ -1,7 +1,7 @@
 'use strict';
 
 app
-   .controller('VideoDetailController', function ($scope, $stateParams, $location, Tube, Youtube, AppUtil) {
+   .controller('VideoDetailController', function ($rootScope, $scope, $stateParams, $location, Tube, Youtube, AppUtil) {
 	   $scope.tube = {};
       $scope.content = "<b>this is bold content</b>";
       $scope.limit = 200;
@@ -19,6 +19,7 @@ app
     	  Youtube.getDetail(id).then(function(result) {
             $scope.tube = result;
             document.getElementById('video-player').innerHTML = $scope.tube.embedHtml;
+            $rootScope.TUBE = $scope.tube;
           });
       };
       $scope.load($stateParams.id);
